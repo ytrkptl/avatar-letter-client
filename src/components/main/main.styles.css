@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  min-height: calc(100vh - 54px - 256px);
+  background-color: aliceblue;
+}
