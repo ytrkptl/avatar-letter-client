@@ -38,7 +38,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="footer__author">
-          Created by: Yatrik Patel, November 28, 2019
+          Created by: Yatrik Patel, November 25, 2020
         </p>
       </div>
     </footer>
