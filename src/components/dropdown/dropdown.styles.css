@@ -1,49 +1,103 @@
+/* Credits to https://codepen.io/Scotho/pen/ygjOPj */
 .dropdown {
+  display: none;
   position: relative;
-  display: none;
-}
-
-.dropdown-body {
-  display: none;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: white;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  /*  */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.175);
-  width: 100px;
-  position: absolute;
-}
-
-.dropdown-body-open {
-  display: flex;
-  z-index: 1;
-  right: 0;
-}
-
-.dropdown-link {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  padding: 6px 20px 6px 20px;
+}
+.dropdown:hover {
+  cursor: pointer;
+}
+.dropdown > a,
+.dropdown > button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 6px 20px 6px 10px;
+  border-radius: 4px;
+  display: inline-block;
   color: black;
   text-decoration: none;
+}
+
+.dropdown > a:before,
+.dropdown > button:before {
+  position: absolute;
+  right: 7px;
+  top: 12px;
+  content: " ";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dropdown input[type="checkbox"] {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  text-align: left;
+  height: 100%;
+  margin: 0px;
+  opacity: 0;
+}
+
+.dropdown input[type="checkbox"]:checked {
+  position: fixed;
+  z-index: +0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.dropdown ul {
+  position: absolute;
+  top: 18px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  right: 0px;
+  list-style: none;
+  padding: 4px 0px;
+  display: none;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.175);
+}
+
+.dropdown input[type="checkbox"]:checked + ul {
+  display: block;
+}
+
+.dropdown ul li {
+  display: block;
+  padding: 6px 20px;
   white-space: nowrap;
   min-width: 100px;
 }
 
-.dropdown-link:hover {
-  background-color: #eee;
+.dropdown ul li:hover {
+  background-color: #f5f5f5;
   cursor: pointer;
+}
+
+.dropdown ul li a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.dropdown .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  font-size: 1px;
+  padding: 0;
 }
 
 @media screen and (max-width: 600px) {
   .dropdown {
-    display: block;
+    display: inline-block;
   }
 }
