@@ -36,6 +36,13 @@
 
 .div-on-far-right {
   margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.div-on-far-right-links {
+  display: flex;
 }
 
 .nav-link {
@@ -49,17 +56,18 @@
   color: blue;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .titleAndLogo {
-    grid-template-columns: 60px;
+    grid-template-columns: 60px 1fr;
+    width: 100%;
   }
-  .titleAndLogo {
+  .div-on-far-right-links {
     display: none;
   }
 }
 
 @media screen and (max-width: 400px) {
   .titleAndLogo {
-    display: none;
+    /* display: none; */
   }
 }
