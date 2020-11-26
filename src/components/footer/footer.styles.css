@@ -1,5 +1,5 @@
 .footer {
-  background-color: gray;
+  background-color: rgba(0, 0, 0, 0.65);
   width: 100%;
   min-height: 256px;
   display: flex;
@@ -20,15 +20,21 @@
   padding-right: 20px;
   padding-top: 40px;
   padding-bottom: 10px;
-  background-color: paleturquoise;
-  color: black;
 }
 
 .footer__title {
-  color: black;
+  color: white;
   display: block;
   margin-top: 4px;
-  border-bottom: 1px solid #e0e0e0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  /* border-top-left-radius: 25px;
+  border-top-right-radius: 25px; */
+  /* text-decoration-line: underline;
+  text-decoration-style: wavy; */
+  /* background-image: linear-gradient(to bottom, gray 80%, mediumspringgreen 20%); */
 }
 
 .footer__grid {
@@ -41,20 +47,21 @@
 }
 
 .footer__link {
-  color: black;
+  color: white;
   text-align: left;
   display: block;
   margin-top: 4px;
   line-height: 1.4rem;
+  text-decoration: none;
 }
 
 .footer__link:hover {
-  color: blue;
+  text-decoration: underline;
 }
 
 .footer__author {
   font-size: 14px;
-  color: black;
+  color: white;
   width: 100%;
   padding-top: 30px;
   border-top: 1px solid #e0e0e0;

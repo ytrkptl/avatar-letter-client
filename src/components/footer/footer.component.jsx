@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <h3 className="footer__title">ThinkMath</h3>
+        <h3 className="footer__title">Avatar Letter</h3>
         <div className="footer__grid">
           <a href="/" className="footer__link">
             Footer links would go here
