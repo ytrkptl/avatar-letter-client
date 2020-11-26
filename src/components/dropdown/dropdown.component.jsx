@@ -8,7 +8,7 @@ const Dropdown = () => {
       <label>
         <input type="checkbox" />
         <ul>
-          <li onClick="console.log(1)">Action</li>
+          <li onClick={()=>console.log('action')}>Action</li>
           <li>Another Action</li>
           <li>Something else here</li>
           <li className="divider"></li>
