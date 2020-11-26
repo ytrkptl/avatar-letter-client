@@ -54,3 +54,147 @@
 .img-description-2 {
   background-color: dimgray;
 }
+
+.ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* text-align: left; */
+  font-weight: 500;
+  color: mediumspringgreen;
+  background-color: rgb(31, 31, 59);
+  padding: auto;
+  margin: auto;
+  padding-bottom: 10px;
+}
+
+.ol li {
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+}
+
+.ol li span {
+  display: block;
+  margin: 10px;
+  padding: 0;
+}
+
+.ol li span:nth-child(2) {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.breakdown-h2 {
+  margin: 40px;
+}
+
+.complete-url-h4 {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.url-breakdown-img {
+  object-fit: contain;
+  max-width: 800px;
+}
+
+.code-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.code-textarea {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 10px;
+  margin: 10px;
+  color: whitesmoke;
+  border: none;
+  outline: none;
+  display: block;
+  text-align: center;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  word-wrap: break-word;
+}
+
+.code-button-container button {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcoral;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 150px 3fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+  list-style-type: none;
+  border: 1px solid gray;
+  background-color: aliceblue;
+}
+
+.options span {
+  border-top: 1px solid gray;
+  padding: 8px;
+}
+
+.options span:nth-child(1),
+.options span:nth-child(2) {
+  border-top: none;
+}
+
+.options span:nth-child(odd) {
+  border-right: 1px solid gray;
+}
+
+.col-1 {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .url-breakdown-img {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .article {
+    max-width: 100%;
+  }
+  .article-para {
+    padding: 4px;
+  }
+  .avatar-letter-img-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ol {
+    width: 100%;
+    word-break: break-all;
+  }
+  .url-breakdown-img {
+    max-width: 100%;
+  }
+  .code-button-container {
+    max-width: 100%;
+  }
+  .code-textarea {
+    max-width: 100%;
+  }
+}

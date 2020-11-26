@@ -1,45 +1,35 @@
 import "./footer.styles.css"
 
-const Footer = () => {
+const Footer = ({scrollTo}) => {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <h3 className="footer__title">Avatar Letter</h3>
+        <h3 className="footer__title" onClick={()=>scrollTo("header")}>Avatar Letter</h3>
         <div className="footer__grid">
-          <a href="/" className="footer__link">
-            Footer links would go here
+          <a href="https://github.com/ytrkptl/avatar-letter-client" target="_blank" rel="noreferrer" className="footer__link">
+            Client repository
           </a>
-          <a href="/" className="footer__link">
-            Dummy er linkser linksLink
+          <span className="footer__link" onClick={()=>scrollTo("how-to-get-started")}>
+            How to use this/How to Get Started?
+          </span>
+          <a href="https://yatrik.dev/" target="_blank" rel="noreferrer" className="footer__link">
+            Yatrik's Portfolio
           </a>
-          <a href="/" className="footer__link">
-            Dummyer linkser links Link
+          <a href="https://github.com/ytrkptl/avatar-letter" target="_blank" rel="noreferrer" className="footer__link">
+            Server repository
           </a>
-          <a href="/" className="footer__link">
-            Dummyer linkser linkser linkser linkser linkser links Link
-          </a>
-          <a href="/" className="footer__link">
-            Dummy Link
-          </a>
-          <a href="/" className="footer__link">
-            Dummy Link
-          </a>
-          <a href="/" className="footer__link">
-            Dummy Link
-          </a>
-          <a href="/" className="footer__link">
-            Dummy Link
-          </a>
-          <a href="/" className="footer__link">
-            Dummy Link
-          </a>
-          <a href="/" className="footer__link">
-            Dummy Link
-          </a>
+          <span className="footer__link" onClick={()=>scrollTo("credits")}>
+            Credits
+          </span>
         </div>
-        <p className="footer__author">
-          Created by: Yatrik Patel, November 25, 2020
-        </p>
+        <div className="footer__author">
+          <p >
+            Created by: Yatrik Patel, November 24, 2020
+          </p>
+          <p >
+            Last Updated on: November 26, 2020
+          </p>
+        </div>
       </div>
     </footer>
   )

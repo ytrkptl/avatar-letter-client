@@ -1,21 +1,22 @@
+// import { Link } from "react-router-dom"
 import Dropdown from "../dropdown/dropdown.component"
 import Logo from "../logo/logo.component"
 import "./header.styles.css"
 
-const Navigation = () => {
+const Navigation = ({scrollTo}) => {
   return (
-    <header className="header">
+    <header className="header" id="header">
       <nav className="nav">
-        <a className="titleAndLogo" href="/">
+        <div className="titleAndLogo" onClick={()=>scrollTo("header")}>
           <Logo />
           <h3 className="title">Avatar Letter</h3>
-        </a>
+        </div>
         <div className="div-on-far-right">
           <div className="div-on-far-right-links">
-            <a href="/about" className="nav-link">Docs</a>
-            <a href="/about" className="nav-link">GitHub</a>
+            <span className="nav-link" onClick={()=>scrollTo("how-to-get-started")}>Docs</span>
+            <a href="https://github.com/ytrkptl/avatar-letter-client" target="_blank" rel="noreferrer" className="nav-link">GitHub</a>
           </div>
-          <Dropdown />
+          <Dropdown scrollTo={scrollTo}/>
         </div>
       </nav>
     </header>
