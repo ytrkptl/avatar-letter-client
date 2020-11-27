@@ -9,11 +9,10 @@
   background-color: #7ee8fa;
   background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
   background-image: linear-gradient(315deg, #eeeeee 0%, #bdbdbd 74%);
-  /* clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%); */
   background-position: center;
 }
 
-.hero h1 {
+.hero-h1 {
   padding: 20px;
   padding-top: 0;
   margin: 20px;
