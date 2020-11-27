@@ -1,6 +1,6 @@
 import Hero from "../hero/hero.component"
 import FoundElsewhere from "../../assets/found-elsewhere.png"
-import UrlBreakdown from "../../assets/url-breakdown-new.png"
+import UrlBreakdown from "../../assets/url-breakdown-heroku.png"
 import Credits from "../credits/credits.component"
 import { useWindowSize } from "../../custom-hooks/use-window-size.jsx"
 import "./main.styles.css"
