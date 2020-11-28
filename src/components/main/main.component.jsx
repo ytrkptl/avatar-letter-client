@@ -86,8 +86,8 @@ const MainComponent = ({scrollTo}) => {
             <span>set1, or set2 (for now)</span>
             <span className="col-1">size</span>
             <span>tiny (24px), small (32px), med (48px), big (64px), large (128px), full (225px)</span>
-            <span className="col-1">letters</span>
-            <span>a-z or A-Z only</span>
+            <span className="col-1">name</span>
+            <span>a-z or A-Z only (will find first matching alphabet and return that alphabet's image)</span>
             <span className="col-1">format</span>
             <span>png or webp</span>
           </div>
