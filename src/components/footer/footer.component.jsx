@@ -1,6 +1,6 @@
 import "./footer.styles.css"
 
-const Footer = ({scrollTo}) => {
+const Footer = ({ scrollTo }) => {
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -27,7 +27,7 @@ const Footer = ({scrollTo}) => {
             Created by: Yatrik Patel, November 24, 2020
           </p>
           <p >
-            Last Updated on: November 26, 2020
+            Last Updated on: December 2, 2020
           </p>
         </div>
       </div>

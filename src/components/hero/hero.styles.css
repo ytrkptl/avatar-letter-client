@@ -12,7 +12,7 @@
   background-position: center;
 }
 
-.hero-h1 {
+.hero__h1 {
   padding: 20px;
   padding-top: 0;
   margin: 20px;
@@ -20,12 +20,12 @@
   font-size: 48px;
 }
 
-.hero-p {
+.hero__p {
   font-size: 24px;
   margin-top: 0;
 }
 
-.hero-button {
+.hero__button {
   padding: 10px 20px;
   margin: 20px;
   width: 200px;
@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-.hero-button:active,
-.hero-button:focus {
+.hero__button:active,
+.hero__button:focus {
   outline: none;
 }
