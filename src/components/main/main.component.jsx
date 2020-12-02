@@ -36,21 +36,21 @@ const MainComponent = ({scrollTo}) => {
             The idea is to return a beautiful 3D-ish, stylish, cool, or unique-looking letter's image to the user rather than the default ones we see in most applications while making sure to provide a variety of sizes, sets (2 for now), and formats (2 for now) for free.
         </p>
         <div className="avatar-letter-img-container">
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/tiny/a/webp`} alt="avatar letter tiny set1 a" className="avatar-letter-img" />
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/small/a/webp`} alt="avatar letter small set1 a" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/med/a/webp`} alt="avatar letter medium set1 a" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/big/a/webp`} alt="avatar letter big set1 a" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/large/a/webp`} alt="avatar letter large set1 a" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/full/a/webp`} alt="avatar letter full set1 a" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/tiny/a/png`} alt="avatar letter tiny set1 a" className="avatar-letter-img" />
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/small/a/png`} alt="avatar letter small set1 a" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/med/a/png`} alt="avatar letter medium set1 a" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/big/a/png`} alt="avatar letter big set1 a" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/large/a/png`} alt="avatar letter large set1 a" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set1/full/a/png`} alt="avatar letter full set1 a" className="avatar-letter-img" /> 
         </div>
         <span className="img-description">3D-ish looking image provided by avatar-letter's set1</span>
         <div className="avatar-letter-img-container">
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/tiny/andy/webp`} alt="avatar letter tiny set2 andy" className="avatar-letter-img" />
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/small/z/webp`} alt="avatar letter small set2 z" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/med/o/webp`} alt="avatar letter medium set2 o" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/big/d/webp`} alt="avatar letter big set2 d" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/large/x/webp`} alt="avatar letter large set2 x" className="avatar-letter-img" /> 
-          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/full/B/webp`} alt="avatar letter full set2 B" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/tiny/andy/png`} alt="avatar letter tiny set2 andy" className="avatar-letter-img" />
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/small/z/png`} alt="avatar letter small set2 z" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/med/o/png`} alt="avatar letter medium set2 o" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/big/d/png`} alt="avatar letter big set2 d" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/large/x/png`} alt="avatar letter large set2 x" className="avatar-letter-img" /> 
+          <img src={`${process.env.REACT_APP_API_URL}/api/file/set2/full/B/png`} alt="avatar letter full set2 B" className="avatar-letter-img" /> 
         </div>
         <span className="img-description">Stylish-looking letter's image provided by avatar-letter's set2</span>
         <img alt="samples avatar-letter found elsewhere" src={FoundElsewhere} className="avatar-letter-img avatar-letter-img-2" height="400px" />
@@ -66,7 +66,7 @@ const MainComponent = ({scrollTo}) => {
         <ol className="ol">
           <li>
             <span>Simply add the following url as the src attribute in your img tags:</span>
-            <span>{`${process.env.REACT_APP_API_URL}/api/file/set1/tiny/a/webp`}</span>
+            <span>{`${process.env.REACT_APP_API_URL}/api/file/set1/tiny/a/png`}</span>
           </li>
           <li >Modify the url as per your needs.</li>
         </ol>
@@ -74,7 +74,7 @@ const MainComponent = ({scrollTo}) => {
         <img src={UrlBreakdown} alt="url-breakdown" className="url-breakdown-img"/>
         <div className="code-button-container">
           <h3 className="complete-url-h4">The complete url looks like the following:</h3>
-          <textarea type="text" readOnly={true} cols="100" rows={size.width < 600 ? "2": "1"}  id="code" className="code-textarea" value={`${process.env.REACT_APP_API_URL}/api/file/set1/big/a/webp`} />
+          <textarea type="text" readOnly={true} cols="100" rows={size.width < 600 ? "2": "1"}  id="code" className="code-textarea" value={`${process.env.REACT_APP_API_URL}/api/file/set1/big/a/png`} />
           <button onClick={()=>copyToClipboard()}>Copy</button>
         </div>
         <div>
