@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Avatar Letter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A 3D-ish, stylish, cool, or unique-looking avatar-letter!
 
-## Available Scripts
+## Why I made this
 
-In the project directory, you can run:
+I made this to use in another app I'm working on so I don't have to rely on other Avatar libraries or providers, or maybe just for fun.
 
-### `npm start`
+The idea is to return a beautiful 3D-ish, stylish, cool, or unique-looking letter's image to the user rather than the default ones we see in most applications while making sure to provide a variety of sizes, sets (2 for now), and formats (2 for now) for free.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**_Here's an example image of what will be returned by set1 of avatar-letter:_**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![example full size avatar-letter for the letter "a"](https://avatar-letter.netlify.app/api/file/set1/full/a/png)
 
-### `npm test`
+**_Here's an example image of what will be returned by set2 of avatar-letter:_**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![example full size avatar-letter for the letter "b"](https://avatar-letter.netlify.app/api/file/set2/full/b/png)
 
-### `npm run build`
+**_Images of what most other avatar-letter libraries, sites, etc. return:_**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![example image of avatar-letters found elsewhere](../../assets/found-elsewhere.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The images were edited in PowerPoint initially after downloading from Freepik first. The images were then resized, compressed, and saved in other formats using the Sharp library. It's crazy how sharp can save hundreds of images on your device in a split of a second.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As far as creating, updating, or deleting any sets, sizes, or formats (basically the static images found in public/letters folder) is concerned, I'd like to be the one maintaining that right now. I will consider ideas for improvement, or ideas for expanding this and providing users with more options
 
-### `npm run eject`
+## How to use this/How to Get Started?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- To use this in your project, the steps are simple:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Simply add the following url as the src attribute in your img tags:
+   https://avatar-letter.herokuapp.com/api/file/set1/tiny/a/png
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Modify the url as per your needs.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Here's a breakdown of the url:
 
-## Learn More
+![breakdown of what the url expects](../../assets/url-breakdown-heroku.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### The complete url looks like the following:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> https://avatar-letter.herokuapp.com/api/file/set1/big/a/png
 
-### Code Splitting
+### What options or params can I pass in?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| returnType | file (may add more option like returning binary data or may completely remove this) |
+| set# | set1, or set2 (for now) |
+| size | tiny (24px), small (32px), med (48px), big (64px), large (128px), full (225px) |
+| name | a-z or A-Z only (will find first matching alphabet and return that alphabet's image) |
+| format | png or webp |
 
-### Analyzing the Bundle Size
+### Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The images were downloaded from Freepik and later modified. Here are the direct links:
 
-### Making a Progressive Web App
+- Set 1: [pikisuperstar](https://www.freepik.com/free-vector/colorful-alphabet_958008.htm)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Set 2: [Sapann-Design](https://www.freepik.com/free-vector/hand-drawn-colorful-alphabet_2920859.htm)
