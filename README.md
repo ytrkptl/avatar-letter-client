@@ -26,7 +26,7 @@ As far as creating, updating, or deleting any sets, sizes, or formats (basically
 
 ## How to use this/How to Get Started?
 
-- To use this in your project, the steps are simple:
+To use this in your project, the steps are simple:
 
 1. Simply add the following url as the src attribute in your img tags:
    https://avatar-letter.herokuapp.com/api/file/set1/tiny/a/png
