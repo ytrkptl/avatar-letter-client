@@ -10,15 +10,15 @@ The idea is to return a beautiful 3D-ish, stylish, cool, or unique-looking lette
 
 **_Here's an example image of what will be returned by set1 of avatar-letter:_**
 
-![example full size avatar-letter for the letter "a"](https://avatar-letter.netlify.app/api/file/set1/full/a/png)
+![example full size avatar-letter for the letter "a"](src/assets/a.png)
 
 **_Here's an example image of what will be returned by set2 of avatar-letter:_**
 
-![example full size avatar-letter for the letter "b"](https://avatar-letter.netlify.app/api/file/set2/full/b/png)
+![example full size avatar-letter for the letter "b"](src/assets/b.png)
 
 **_Images of what most other avatar-letter libraries, sites, etc. return:_**
 
-![example image of avatar-letters found elsewhere](../../assets/found-elsewhere.png)
+![example image of avatar-letters found elsewhere](/src/assets/found-elsewhere.png)
 
 The images were edited in PowerPoint initially after downloading from Freepik first. The images were then resized, compressed, and saved in other formats using the Sharp library. It's crazy how sharp can save hundreds of images on your device in a split of a second.
 
@@ -35,7 +35,7 @@ As far as creating, updating, or deleting any sets, sizes, or formats (basically
 
 ## Here's a breakdown of the url:
 
-![breakdown of what the url expects](../../assets/url-breakdown-heroku.png)
+![breakdown of what the url expects](src/assets/url-breakdown-heroku.png)
 
 ### The complete url looks like the following:
 
