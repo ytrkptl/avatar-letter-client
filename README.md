@@ -35,7 +35,7 @@ To use this in your project, the steps are simple:
 
 ## Here's a breakdown of the url:
 
-![breakdown of what the url expects](src/assets/url-breakdown-avatar-letter-site.png)
+![breakdown of what the url expects](src/assets/url-breakdown-hostinger-2024.png)
 
 ### The complete url looks like the following:
 
