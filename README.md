@@ -29,7 +29,7 @@ As far as creating, updating, or deleting any sets, sizes, or formats (basically
 To use this in your project, the steps are simple:
 
 1. Simply add the following url as the src attribute in your img tags:
-   https://avatar-letter.fun/api/file/set1/tiny/a/png
+   <https://avatar-letter.fun/api/file/set1/tiny/a/png>
 
 2. Modify the url as per your needs.
 
