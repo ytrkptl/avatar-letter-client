@@ -160,7 +160,6 @@ const MainComponent: React.FC<MainComponentProps> = ({ scrollTo }) => {
             The complete url looks like the following:
           </h3>
           <textarea
-            type="text"
             readOnly={true}
             cols={100}
             rows={size.width && size.width < 600 ? 2 : 1}
