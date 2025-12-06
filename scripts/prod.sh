@@ -1,2 +1,2 @@
 #!/bin/bash
-docker compose --profile prod up --build
+docker compose --profile prod up --build -d
