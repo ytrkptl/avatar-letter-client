@@ -17,7 +17,7 @@ services:
     container_name: avatar_letter_client_dev_container
 
   # Alternative production with custom port for viewing production build locally
-  react-prod-custom:
+  react-prod-local:
     build:
       context: .
       target: production
