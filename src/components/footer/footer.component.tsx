@@ -1,6 +1,11 @@
 import "./footer.styles.css"
+import React from "react";
 
-const Footer = ({ scrollTo }) => {
+interface FooterProps {
+  scrollTo: (hashName: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ scrollTo }) => {
   return (
     <footer className="footer">
       <div className="footer__inner">

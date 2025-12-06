@@ -1,6 +1,11 @@
 import "./hero.styles.css";
+import React from "react";
 
-const Hero = ({ scrollTo }) => {
+interface HeroProps {
+  scrollTo: (hashName: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ scrollTo }) => {
   return (
     <div className="hero">
       <h1 className="hero__h1">Avatar Letter</h1>      

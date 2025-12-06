@@ -6,12 +6,14 @@ import "./App.css";
 function App() {
   // the following function accepts hashname or id
   // and scrolls to that id's location on the page
-  const scrollTo = (hashName) => {
+  const scrollTo = (hashName: string) => {
     let parentRect = document.body.getBoundingClientRect();
     let element = document.getElementById(hashName);
-    let rect = element.getBoundingClientRect();
-    let offset = rect.top - parentRect.top - 20;
-    window.scrollTo(0, offset);
+    if (element) {
+      let rect = element.getBoundingClientRect();
+      let offset = rect.top - parentRect.top - 20;
+      window.scrollTo(0, offset);
+    }
   };
 
   return (

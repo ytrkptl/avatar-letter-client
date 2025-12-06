@@ -2,26 +2,33 @@ import Hero from "../hero/hero.component";
 import FoundElsewhere from "../../assets/found-elsewhere.png";
 import UrlBreakdown from "../../assets/url-breakdown-hostinger-2024-800px.png";
 import Credits from "../credits/credits.component";
-import { useWindowSize } from "../../custom-hooks/use-window-size.jsx";
+import { useWindowSize } from "../../custom-hooks/use-window-size";
 import "./main.styles.css";
+import React from "react";
 
-const MainComponent = ({ scrollTo }) => {
+interface MainComponentProps {
+  scrollTo: (hashName: string) => void;
+}
+
+const MainComponent: React.FC<MainComponentProps> = ({ scrollTo }) => {
   const size = useWindowSize();
 
   // Source: https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
   const copyToClipboard = async () => {
     /* Get the text field */
-    var copyText = document.getElementById("code");
+    const copyText = document.getElementById("code") as HTMLTextAreaElement;
 
-    /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-    copyText.click();
-
-    /* Copy the text inside the text field */
-    document.execCommand("copy");
-
-    alert("Copied successfully! Now paste it in your img tag's src attribute.");
+    if (copyText) {
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+        copyText.click();
+    
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+    
+        alert("Copied successfully! Now paste it in your img tag's src attribute.");
+    }
   };
 
   return (
@@ -40,32 +47,32 @@ const MainComponent = ({ scrollTo }) => {
         </p>
         <div className="avatar-letter-img-container">
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set1/tiny/a/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set1/tiny/a/png`}
             alt="avatar letter tiny set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set1/small/a/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set1/small/a/png`}
             alt="avatar letter small set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set1/med/a/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set1/med/a/png`}
             alt="avatar letter medium set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set1/big/a/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set1/big/a/png`}
             alt="avatar letter big set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set1/large/a/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set1/large/a/png`}
             alt="avatar letter large set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set1/full/a/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set1/full/a/png`}
             alt="avatar letter full set1 a"
             className="avatar-letter-img"
           />
@@ -75,32 +82,32 @@ const MainComponent = ({ scrollTo }) => {
         </span>
         <div className="avatar-letter-img-container">
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set2/tiny/andy/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set2/tiny/andy/png`}
             alt="avatar letter tiny set2 andy"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set2/small/z/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set2/small/z/png`}
             alt="avatar letter small set2 z"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set2/med/o/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set2/med/o/png`}
             alt="avatar letter medium set2 o"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set2/big/d/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set2/big/d/png`}
             alt="avatar letter big set2 d"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set2/large/x/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set2/large/x/png`}
             alt="avatar letter large set2 x"
             className="avatar-letter-img"
           />
           <img
-            src={`${process.env.REACT_APP_API_URL}/api/file/set2/full/B/png`}
+            src={`${import.meta.env.VITE_API_URL}/api/file/set2/full/B/png`}
             alt="avatar letter full set2 B"
             className="avatar-letter-img"
           />
@@ -138,7 +145,7 @@ const MainComponent = ({ scrollTo }) => {
               Simply add the following url as the src attribute in your img
               tags:
             </span>
-            <span>{`${process.env.REACT_APP_API_URL}/api/file/set1/tiny/a/png`}</span>
+            <span>{`${import.meta.env.VITE_API_URL}/api/file/set1/tiny/a/png`}</span>
           </li>
           <li>Modify the url as per your needs.</li>
         </ol>
@@ -155,11 +162,11 @@ const MainComponent = ({ scrollTo }) => {
           <textarea
             type="text"
             readOnly={true}
-            cols="100"
-            rows={size.width < 600 ? "2" : "1"}
+            cols={100}
+            rows={size.width && size.width < 600 ? 2 : 1}
             id="code"
             className="code-textarea"
-            value={`${process.env.REACT_APP_API_URL}/api/file/set1/big/a/png`}
+            value={`${import.meta.env.VITE_API_URL}/api/file/set1/big/a/png`}
           />
           <button onClick={() => copyToClipboard()}>Copy</button>
         </div>

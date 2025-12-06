@@ -1,0 +1,35 @@
+services:
+  # Development service
+  react-dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    profiles:
+      - dev
+    image: avatar_letter_client_dev_image
+    container_name: avatar_letter_client_dev_container
+
+  # Production service
+  react-prod:
+    build:
+      context: .
+      target: production
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    profiles:
+      - prod
+    image: avatar_letter_client_prod_image
+    container_name: avatar_letter_client_prod_container
+
+networks:
+  default:
+    driver: bridge

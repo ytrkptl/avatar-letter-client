@@ -1,6 +1,7 @@
 import "./credits.styles.css"
+import React from "react";
 
-const Credits = () => {
+const Credits: React.FC = () => {
   return (
     <div id="credits">
       <h2>Credits</h2>
