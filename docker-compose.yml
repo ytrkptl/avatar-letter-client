@@ -38,7 +38,7 @@ services:
       context: .
       target: production
       args:
-        - VITE_API_URL=${VITE_API_URL:-http://localhost:80}
+        - "VITE_API_URL=${VITE_API_URL}"
     expose:
       - "80"
     environment:
