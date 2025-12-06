@@ -1,7 +1,12 @@
 import "./dropdown.styles.css"
+import React from "react";
+
+interface DropdownProps {
+  scrollTo: (hashName: string) => void;
+}
 
 // Credits to https://codepen.io/Scotho/pen/ygjOPj
-const Dropdown = ({scrollTo}) => {
+const Dropdown: React.FC<DropdownProps> = ({scrollTo}) => {
   return (
     <span className="dropdown">
       <button>Menu</button>

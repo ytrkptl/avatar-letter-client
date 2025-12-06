@@ -2,8 +2,13 @@
 import Dropdown from "../dropdown/dropdown.component"
 import Logo from "../logo/logo.component"
 import "./header.styles.css"
+import React from "react";
 
-const Navigation = ({scrollTo}) => {
+interface HeaderProps {
+  scrollTo: (hashName: string) => void;
+}
+
+const Navigation: React.FC<HeaderProps> = ({scrollTo}) => {
   return (
     <header className="header" id="header">
       <nav className="nav">
