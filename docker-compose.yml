@@ -39,8 +39,8 @@ services:
       target: production
       args:
         - VITE_API_URL=${VITE_API_URL:-http://localhost:80}
-    ports:
-      - "80:80"
+    expose:
+      - "80"
     environment:
       - NODE_ENV=production
     profiles:
