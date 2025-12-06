@@ -19,6 +19,12 @@ WORKDIR /app
 COPY package*.json ./
 RUN pnpm install
 COPY . .
+
+# Accept build argument for API URL
+ARG VITE_API_URL
+# Set environment variable during build
+ENV VITE_API_URL=$VITE_API_URL
+
 RUN pnpm run build
 
 # Production stage

@@ -16,11 +16,29 @@ services:
     image: avatar_letter_client_dev_image
     container_name: avatar_letter_client_dev_container
 
+  # Alternative production with custom port for viewing production build locally
+  react-prod-custom:
+    build:
+      context: .
+      target: production
+      args:
+        - VITE_API_URL=${VITE_API_URL:-http://localhost:8080}
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    profiles:
+      - prod-local
+    image: avatar_letter_client_prod_local_image
+    container_name: avatar_letter_client_prod_local_container
+
   # Production service
   react-prod:
     build:
       context: .
       target: production
+      args:
+        - VITE_API_URL=${VITE_API_URL:-http://localhost:80}
     ports:
       - "80:80"
     environment:
