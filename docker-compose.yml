@@ -21,8 +21,6 @@ services:
     build:
       context: .
       target: production
-      args:
-        - VITE_API_URL=${VITE_API_URL:-http://localhost:8080}
     ports:
       - "8080:80"
     environment:
@@ -37,8 +35,6 @@ services:
     build:
       context: .
       target: production
-      args:
-        - "VITE_API_URL=${VITE_API_URL}"
     expose:
       - "80"
     environment:

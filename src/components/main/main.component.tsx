@@ -5,6 +5,7 @@ import Credits from "../credits/credits.component";
 import { useWindowSize } from "../../custom-hooks/use-window-size";
 import "./main.styles.css";
 import React from "react";
+import { API_URL } from "../../constants";
 
 interface MainComponentProps {
   scrollTo: (hashName: string) => void;
@@ -47,32 +48,32 @@ const MainComponent: React.FC<MainComponentProps> = ({ scrollTo }) => {
         </p>
         <div className="avatar-letter-img-container">
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set1/tiny/a/png`}
+            src={`${API_URL}/api/file/set1/tiny/a/png`}
             alt="avatar letter tiny set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set1/small/a/png`}
+            src={`${API_URL}/api/file/set1/small/a/png`}
             alt="avatar letter small set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set1/med/a/png`}
+            src={`${API_URL}/api/file/set1/med/a/png`}
             alt="avatar letter medium set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set1/big/a/png`}
+            src={`${API_URL}/api/file/set1/big/a/png`}
             alt="avatar letter big set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set1/large/a/png`}
+            src={`${API_URL}/api/file/set1/large/a/png`}
             alt="avatar letter large set1 a"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set1/full/a/png`}
+            src={`${API_URL}/api/file/set1/full/a/png`}
             alt="avatar letter full set1 a"
             className="avatar-letter-img"
           />
@@ -82,32 +83,32 @@ const MainComponent: React.FC<MainComponentProps> = ({ scrollTo }) => {
         </span>
         <div className="avatar-letter-img-container">
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set2/tiny/andy/png`}
+            src={`${API_URL}/api/file/set2/tiny/andy/png`}
             alt="avatar letter tiny set2 andy"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set2/small/z/png`}
+            src={`${API_URL}/api/file/set2/small/z/png`}
             alt="avatar letter small set2 z"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set2/med/o/png`}
+            src={`${API_URL}/api/file/set2/med/o/png`}
             alt="avatar letter medium set2 o"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set2/big/d/png`}
+            src={`${API_URL}/api/file/set2/big/d/png`}
             alt="avatar letter big set2 d"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set2/large/x/png`}
+            src={`${API_URL}/api/file/set2/large/x/png`}
             alt="avatar letter large set2 x"
             className="avatar-letter-img"
           />
           <img
-            src={`${import.meta.env.VITE_API_URL}/api/file/set2/full/B/png`}
+            src={`${API_URL}/api/file/set2/full/B/png`}
             alt="avatar letter full set2 B"
             className="avatar-letter-img"
           />
@@ -145,7 +146,7 @@ const MainComponent: React.FC<MainComponentProps> = ({ scrollTo }) => {
               Simply add the following url as the src attribute in your img
               tags:
             </span>
-            <span>{`${import.meta.env.VITE_API_URL}/api/file/set1/tiny/a/png`}</span>
+            <span>{`${API_URL}/api/file/set1/tiny/a/png`}</span>
           </li>
           <li>Modify the url as per your needs.</li>
         </ol>
@@ -165,7 +166,7 @@ const MainComponent: React.FC<MainComponentProps> = ({ scrollTo }) => {
             rows={size.width && size.width < 600 ? 2 : 1}
             id="code"
             className="code-textarea"
-            value={`${import.meta.env.VITE_API_URL}/api/file/set1/big/a/png`}
+            value={`${API_URL}/api/file/set1/big/a/png`}
           />
           <button onClick={() => copyToClipboard()}>Copy</button>
         </div>
