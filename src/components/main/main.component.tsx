@@ -20,15 +20,17 @@ const MainComponent: React.FC<MainComponentProps> = ({ scrollTo }) => {
     const copyText = document.getElementById("code") as HTMLTextAreaElement;
 
     if (copyText) {
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-        copyText.click();
-    
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-    
-        alert("Copied successfully! Now paste it in your img tag's src attribute.");
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+      copyText.click();
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+
+      alert(
+        "Copied successfully! Now paste it in your img tag's src attribute."
+      );
     }
   };
 
