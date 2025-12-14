@@ -22,5 +22,4 @@ docker-compose.yml
 .prettierrc.json
 .prettierignore
 eslint.config.js
-tsconfig*.json
 scripts
