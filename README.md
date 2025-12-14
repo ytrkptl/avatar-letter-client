@@ -120,8 +120,8 @@ bash scripts/stop.sh
 | Service | Environment | Port | URL |
 |---------|-------------|------|-----|
 | Frontend | Development | 5173 | http://localhost:5173 |
-| Frontend | Production (Local) | 3000 | http://localhost:3000 |
-| Backend API | All | 8080 | http://localhost:8080 |
+| Backend API | Development | 8080 | http://localhost:8080 |
+| Unified Service | Production | 80 | http://localhost (frontend + API) |
 
 ## 🔧 Development Workflow
 
@@ -158,21 +158,55 @@ The frontend will automatically reload when you make changes to the source code.
 
 ## 🚀 Production Deployment
 
-### Coolify Deployment (Frontend)
+### Unified Architecture
 
-The frontend is deployed to Coolify. The production nginx configuration includes a proxy to forward `/api/*` requests to the backend service.
+In production, a **single nginx server** serves both the React frontend and the API:
+- Frontend at `/` (root)
+- API at `/api/*`
+- Static avatar images at `/public/*`
 
-**Important**: Update the nginx proxy configuration in production to point to your deployed backend API URL.
+This eliminates the need for a separate frontend service and simplifies deployment.
 
-### Backend API Deployment
+### Local Production Testing
 
-Deploy the backend API service:
+Test the unified production build locally:
 
+**Windows:**
+```cmd
+scripts\prod-local.bat
+```
+
+**Linux/Mac:**
+```bash
+bash scripts/prod-local.sh
+```
+
+This will start the unified service on port 80:
+- Frontend: http://localhost
+- API: http://localhost/api/file/set1/big/a/png
+- Health: http://localhost/health
+
+### Production Deployment
+
+Deploy the unified service:
+
+**Windows:**
+```cmd
+scripts\prod.bat
+```
+
+**Linux/Mac:**
 ```bash
 bash scripts/prod.sh
 ```
 
-This starts only the backend API service in detached mode. The frontend is deployed separately on Coolify.
+This starts the `backend-api-prod` service which:
+1. Builds the React frontend during Docker build
+2. Serves the built frontend at `/`
+3. Serves the API at `/api/*`
+4. Serves static avatar images
+
+**For Coolify**: Deploy using `Dockerfile` which handles everything in one container.
 
 ## 📡 API Documentation
 
@@ -272,32 +306,30 @@ All scripts are available in both Unix shell (`.sh`) and Windows batch (`.bat`) 
 
 ## 🌐 Coolify Deployment Notes
 
-### Frontend Deployment
+### Unified Deployment
 
-The frontend is deployed to Coolify with the following configuration:
+The project uses a **unified architecture** where a single nginx container serves both the frontend and API.
 
-1. **Build Command**: `pnpm install && pnpm run build`
-2. **Start Command**: Uses nginx to serve static files
-3. **Environment Variables**: Configure `VITE_API_URL` to point to your backend API
+**Deployment Configuration**:
+1. **Dockerfile**: Use `Dockerfile`
+2. **Build Process**: Multi-stage build (builds React → copies to nginx)
+3. **Port**: Expose port 80
+4. **Health Check**: `/health` endpoint
 
-### Backend API Deployment
+**What gets deployed**:
+- React frontend at `/`
+- API endpoints at `/api/*`
+- Static avatar images at `/public/*`
 
-The backend can be deployed separately or alongside the frontend:
+**No separate services needed** - everything runs in one container!
 
-1. **Dockerfile**: Uses `Dockerfile.api`
-2. **Port**: Expose port 80 internally
-3. **Health Check**: `/health` endpoint
+### Build Process
 
-### Nginx Configuration for Production
+The `Dockerfile` multi-stage build:
+1. **Stage 1**: Builds the React frontend using Node.js + pnpm
+2. **Stage 2**: Copies built frontend to nginx and serves everything
 
-Update the frontend's `nginx.conf` to proxy API requests to your deployed backend:
-
-```nginx
-location /api/ {
-    proxy_pass http://your-backend-api-url;
-    # ... other proxy settings
-}
-```
+This ensures the frontend is always built fresh during deployment.
 
 ## 🐛 Troubleshooting
 
