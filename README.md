@@ -160,12 +160,12 @@ The frontend will automatically reload when you make changes to the source code.
 
 ### Unified Architecture
 
-In production, a **single nginx server** serves both the React frontend and the API:
-- Frontend at `/` (root)
-- API at `/api/*`
-- Static avatar images at `/public/*`
+In production, a **single Node.js (Express) server** serves both the React frontend and the API:
+- Frontend at `/` (root) - serves static `dist` files with SPA fallback
+- API at `/api/*` - handles dynamic avatar requests
+- Static avatar images served via API logic
 
-This eliminates the need for a separate frontend service and simplifies deployment.
+This eliminates the need for Nginx and allows for dynamic logic (e.g., extracting initials from names).
 
 ### Local Production Testing
 
