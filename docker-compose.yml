@@ -1,9 +1,29 @@
 services:
-  # Development service
-  react-dev:
+  # Backend API service - serves avatar images
+  backend-api:
     build:
       context: .
+      dockerfile: Dockerfile.api
+    container_name: avatar_letter_api
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - avatar-network
+
+  # Frontend development service
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
       target: development
+    container_name: avatar_letter_frontend_dev
     ports:
       - "5173:5173"
     volumes:
@@ -11,39 +31,50 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+      - VITE_API_URL=http://backend-api:80
+    depends_on:
+      backend-api:
+        condition: service_healthy
     profiles:
       - dev
-    image: avatar_letter_client_dev_image
-    container_name: avatar_letter_client_dev_container
+    networks:
+      - avatar-network
 
-  # Alternative production with custom port for viewing production build locally
-  react-prod-local:
+  # Frontend production local testing service
+  frontend-prod-local:
     build:
       context: .
+      dockerfile: Dockerfile
       target: production
+    container_name: avatar_letter_frontend_prod_local
     ports:
-      - "8080:80"
+      - "3000:80"
     environment:
       - NODE_ENV=production
+    depends_on:
+      backend-api:
+        condition: service_healthy
     profiles:
       - prod-local
-    image: avatar_letter_client_prod_local_image
-    container_name: avatar_letter_client_prod_local_container
+    networks:
+      - avatar-network
 
-  # Production service
-  react-prod:
+  # Frontend production service (for Coolify deployment)
+  frontend-prod:
     build:
       context: .
+      dockerfile: Dockerfile
       target: production
+    container_name: avatar_letter_frontend_prod
     expose:
       - "80"
     environment:
       - NODE_ENV=production
     profiles:
       - prod
-    image: avatar_letter_client_prod_image
-    container_name: avatar_letter_client_prod_container
+    networks:
+      - avatar-network
 
 networks:
-  default:
+  avatar-network:
     driver: bridge
