@@ -19,11 +19,12 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm run build
 
-# Stage 2: Production nginx server
+# Stage 3: Production nginx server
 FROM nginx:alpine AS production
 
-# Remove default nginx configuration
-RUN rm /etc/nginx/nginx.conf
+# Remove default nginx configuration and conf.d files
+RUN rm /etc/nginx/nginx.conf && \
+    rm -rf /etc/nginx/conf.d
 
 # Copy custom nginx configuration
 COPY nginx-api.conf /etc/nginx/nginx.conf
