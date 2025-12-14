@@ -6,6 +6,8 @@ services:
     container_name: avatar_letter_api
     ports:
       - "8080:80"
+    environment:
+      - PORT=80
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1/health" ]
@@ -46,10 +48,10 @@ services:
       context: .
     container_name: avatar_letter_prod
     ports:
-      - "80:80"
+      - "80:8080"
     restart: unless-stopped
     healthcheck:
-      test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1/health" ]
+      test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:8080/health" ]
       interval: 30s
       timeout: 10s
       retries: 3

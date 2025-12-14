@@ -21,8 +21,13 @@
     "format": "prettier --write \"src/**/*.{tsx,ts,css}\""
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "helmet": "^8.1.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "serve-favicon": "^2.5.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

@@ -19,24 +19,30 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm run build
 
-# Stage 3: Production nginx server
-FROM nginx:alpine AS production
+# Stage 3: Production Node.js server (Express + Frontend)
+FROM node:22-alpine AS production
 
-# Remove default nginx configuration and conf.d files
-RUN rm /etc/nginx/nginx.conf && \
-    rm -rf /etc/nginx/conf.d
+ENV NODE_ENV=production
+WORKDIR /app
 
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Enable corepack for pnpm
+RUN corepack enable
+
+# Install production dependencies
+COPY package*.json pnpm-lock.yaml ./
+RUN pnpm install --prod --frozen-lockfile
+
+# Copy API code
+COPY api ./api
+
+# Copy public folder with avatars (kept at root level for consistency)
+COPY public ./public
 
 # Copy built frontend from build stage
-COPY --from=frontend-build /app/dist /usr/share/nginx/html
+COPY --from=frontend-build /app/dist ./dist
 
-# Copy public folder with all avatar images
-COPY public /usr/share/nginx/html/public
+# Expose port 8080
+EXPOSE 8080
 
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start Express server
+CMD ["node", "api/start.js"]
