@@ -27,7 +27,7 @@ RUN rm /etc/nginx/nginx.conf && \
     rm -rf /etc/nginx/conf.d
 
 # Copy custom nginx configuration
-COPY nginx-api.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy built frontend from build stage
 COPY --from=frontend-build /app/dist /usr/share/nginx/html
