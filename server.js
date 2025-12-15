@@ -20,7 +20,8 @@ app.get("/health", (req, res) => res.status(200).send("OK"));
 app.use("/api/file", routes);
 
 // otherwise serve the index.html file
-app.get("*", (req, res) => {
+// otherwise serve the index.html file
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
