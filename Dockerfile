@@ -15,7 +15,7 @@ RUN pnpm install --frozen-lockfile
 RUN pnpm run build
 
 # Production Stage
-FROM node:24-alpine
+FROM node:24-alpine AS production
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
