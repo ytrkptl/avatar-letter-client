@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: avatar-letter-app
+    container_name: avatar-letter-app-2025
     ports:
       - "5001:5001"
     restart: always
