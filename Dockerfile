@@ -1,48 +1,47 @@
-# Multi-stage Dockerfile: Development + Production (Frontend + API)
-
-# Stage 1: Development environment with hot-reload
-FROM node:22-alpine AS development
+# Build Stage
+FROM node:24-alpine AS builder
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
-WORKDIR /app
-COPY package*.json pnpm-lock.yaml ./
-RUN pnpm install
-COPY . .
-EXPOSE 5173
-CMD ["pnpm", "run", "dev"]
 
-# Stage 2: Build the React frontend for production
-FROM node:22-alpine AS frontend-build
-RUN corepack enable
 WORKDIR /app
-COPY package*.json pnpm-lock.yaml ./
+
+# Copy client source
+COPY client ./client
+
+# Build client
+WORKDIR /app/client
 RUN pnpm install --frozen-lockfile
-COPY . .
 RUN pnpm run build
 
-# Stage 3: Production Node.js server (Express + Frontend)
-FROM node:22-alpine AS production
+# Production Stage
+FROM node:24-alpine
 
-ENV NODE_ENV=production
-WORKDIR /app
-
-# Enable corepack for pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-# Install production dependencies
-COPY package*.json pnpm-lock.yaml ./
+WORKDIR /app
+
+# Install server dependencies
+COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
 
-# Copy API code
-COPY api ./api
+# Copy server source code
+COPY server.js start.js ./
+COPY controllers ./controllers
+COPY routes ./routes
+COPY validators ./validators
 
-# Copy public folder with avatars (kept at root level for consistency)
+# Step 1: Copy original public directory (contains letters, favicon, etc.)
 COPY public ./public
 
-# Copy built frontend from build stage
-COPY --from=frontend-build /app/dist ./dist
+# Step 2: Copy built client assets (merging/overwriting)
+# Vite outputted to ../public in the build stage, which is /app/public
+COPY --from=builder /app/public ./public
 
-# Expose port 8080
-EXPOSE 8080
+# Expose the server port
+EXPOSE 5001
 
-# Start Express server
-CMD ["node", "api/start.js"]
+# Start the server
+CMD ["node", "start.js"]

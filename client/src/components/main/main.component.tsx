@@ -1,6 +1,6 @@
 import Hero from "../hero/hero.component";
 import FoundElsewhere from "../../assets/found-elsewhere.png";
-import UrlBreakdown from "../../assets/url-breakdown-hostinger-2024-800px.png";
+import UrlBreakdown from "../../assets/url-breakdown-800px.png";
 import Credits from "../credits/credits.component";
 import { useWindowSize } from "../../custom-hooks/use-window-size";
 import "./main.styles.css";

@@ -1,66 +1,10 @@
 services:
-  # Backend API service - serves avatar images
-  backend-api:
-    build:
-      context: .
-    container_name: avatar_letter_api
+  app:
+    build: .
+    container_name: avatar-letter-app-2025
     ports:
-      - "8080:80"
+      - "5001:5001"
+    restart: always
     environment:
-      - PORT=80
-    restart: unless-stopped
-    healthcheck:
-      test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1/health" ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-    networks:
-      - avatar-network
-
-  # Frontend development service
-  frontend-dev:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: development
-    container_name: avatar_letter_frontend_dev
-    ports:
-      - "5173:5173"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-      - VITE_API_URL=http://backend-api:80
-    depends_on:
-      backend-api:
-        condition: service_healthy
-    profiles:
-      - dev
-    networks:
-      - avatar-network
-
-  # Production service - serves both frontend and API
-  # In production, backend-api serves the built React app at / and API at /api/*
-  backend-api-prod:
-    build:
-      context: .
-    container_name: avatar_letter_prod
-    ports:
-      - "80:8080"
-    restart: unless-stopped
-    healthcheck:
-      test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:8080/health" ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-    profiles:
-      - prod
-    networks:
-      - avatar-network
-
-networks:
-  avatar-network:
-    driver: bridge
+      - NODE_ENV=production
+      - PORT=5001
