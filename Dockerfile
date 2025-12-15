@@ -21,7 +21,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Install server dependencies
 COPY package.json pnpm-lock.yaml ./
@@ -46,4 +46,4 @@ COPY --from=builder /app/public ./public
 EXPOSE 5001
 
 # Start the server with directory listing for debugging
-CMD ["sh", "-c", "ls -la /app && node start.js"]
+CMD ["sh", "-c", "ls -la /usr/src/app && node start.js"]
