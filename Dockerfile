@@ -28,7 +28,9 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
 
 # Copy server source code
-COPY server.js start.js ./
+# Copy server source code
+COPY server.js ./
+COPY start.js ./
 COPY controllers ./controllers
 COPY routes ./routes
 COPY validators ./validators
@@ -43,5 +45,5 @@ COPY --from=builder /app/public ./public
 # Expose the server port
 EXPOSE 5001
 
-# Start the server
-CMD ["node", "start.js"]
+# Start the server with directory listing for debugging
+CMD ["sh", "-c", "ls -la /app && node start.js"]
