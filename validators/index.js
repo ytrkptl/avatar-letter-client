@@ -1,10 +1,10 @@
-import { validationResult } from 'express-validator';
+import { validationResult } from "express-validator";
 
 export const runValidation = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next({
-      title: 'validators error',
+      title: "validators error",
       messageForLog: errors.array()[0].msg,
       status: 422,
       message: errors.array()[0].msg,
@@ -18,7 +18,7 @@ export const runAvatarLetterValidation = (err, req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next({
-      title: 'validators error',
+      title: "validators error",
       messageForLog: errors.array()[0].msg,
       status: 422,
       message: errors.array()[0].msg,
@@ -27,7 +27,7 @@ export const runAvatarLetterValidation = (err, req, res, next) => {
   }
   if (err) {
     return next({
-      title: 'validators error',
+      title: "validators error",
       messageForLog: err.message,
       status: 400,
       message: err.message,

@@ -1,47 +1,32 @@
 {
-  "name": "avatar-letter-client",
-  "version": "0.2.0",
-  "description": "Frontend for the avatar-letter application.",
-  "author": "Yatrik Patel",
-  "keywords": [
-    "avatar-letter",
-    "profile photo placeholder",
-    "avatar placeholder",
-    "avatar letter",
-    "avatar letter placeholder"
-  ],
-  "private": true,
-  "packageManager": "pnpm@10.24.0",
+  "name": "new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
   "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{tsx,ts,css}\""
+    "client": "cd client && pnpm dev",
+    "server": "nodemon start.js",
+    "build": "cd client && pnpm build",
+    "dev": "concurrently --kill-others-on-fail \"pnpm run server\" \"pnpm run client\"",
+    "start": "node start.js",
+    "format": "prettier --write \"**/*.{js,css,html,md}\""
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.24.0",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "express-validator": "^7.3.1",
     "helmet": "^8.1.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
     "serve-favicon": "^2.5.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "@types/node": "^25.0.2",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react": "^5.0.0",
-    "eslint": "^9.33.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "prettier": "3.7.4",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2"
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.11",
+    "prettier": "3.7.4"
   }
 }
